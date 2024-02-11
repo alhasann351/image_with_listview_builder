@@ -34,13 +34,13 @@ class _MyHomePageState extends State<MyHomePage> {
     {'img': 'https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg'},
     {
       'img':
-      'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg'
+          'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg'
     },
     {'img': 'https://images.pexels.com/photos/707046/pexels-photo-707046.jpeg'},
     {'img': 'https://images.pexels.com/photos/909907/pexels-photo-909907.jpeg'},
     {
       'img':
-      'https://images.pexels.com/photos/35967/mini-cooper-auto-model-vehicle.jpg'
+          'https://images.pexels.com/photos/35967/mini-cooper-auto-model-vehicle.jpg'
     },
     {'img': 'https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg'},
     {'img': 'https://images.pexels.com/photos/733745/pexels-photo-733745.jpeg'},
@@ -50,9 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme
-            .of(context)
-            .primaryColor,
+        backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
         title: const Text(
           'Image With ListView Builder',
@@ -66,7 +64,14 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView.builder(
         itemCount: imageItem.length,
         itemBuilder: (context, index) {
-          return Image.network(imageItem[index]['img']!);
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.network(
+              imageItem[index]['img']!,
+              fit: BoxFit.fill,
+              height: 300,
+            ),
+          );
         },
       ),
     );
